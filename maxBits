@@ -1,0 +1,17 @@
+int maxBits(int n) {
+    String string = Integer.toBinaryString(n);
+    int zeros = 0, ones = 0, pow, total = 0;
+    
+    for(int i = 0; i < string.length(); i++)
+            if(string.charAt(i) == '0')
+                zeros++;
+            else
+                ones++;
+    
+    pow = zeros + ones - 1;
+    
+    for(int j = 0; j < ones; j++, pow--)
+            total += Math.pow(2, pow);
+    
+    return total;   
+}
