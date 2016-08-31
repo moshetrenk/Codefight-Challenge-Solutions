@@ -1,0 +1,64 @@
+//this is a truly horrible solution but it works...
+
+String alphaChange(String s) {
+    StringBuilder str = new StringBuilder();
+   
+    int num = getInt(s);
+    boolean ch = false;
+    
+    
+    for(int i = 0; i < s.length(); i++){
+        char a = s.charAt(i);
+        
+        
+        if (a >= 97 && a <= 122){
+            
+            if (num > 26)
+                num %= 26;
+            System.out.println(a + num);
+            if ((a + num) > 122){
+                num -= 26;
+                ch = true;
+            }
+            
+            char c = ((char)((s.charAt(i) + num)));
+            str.append(c);
+            
+            if (ch == true)
+                num += 26;
+        }
+        else if (a >= 65 && a <= 90){
+            
+            if (num > 26)
+                num %= 26;
+            if ((a + num) > 90){
+                num -= 26;
+                ch = true;
+            }
+            
+            char c = ((char)((s.charAt(i) + num)));
+            str.append(c);
+            
+            if (ch == true)
+                num += 26;
+        }
+            
+            
+            
+    }
+    
+    String st = new String(str);
+    
+    return st;
+}
+
+
+int getInt(String str){
+    StringBuilder p = new StringBuilder();
+    for(int i = 0; i < str.length(); i++){
+        if ((str.charAt(i) >= 48 && str.charAt(i) <= 57))
+            p.append(str.charAt(i));
+    }
+
+    return Integer.valueOf(p.toString());
+}
