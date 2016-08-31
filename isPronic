@@ -1,0 +1,6 @@
+boolean isPronic(int n) {
+  
+    int a = (int) Math.sqrt(n);
+    
+    return (a * ++a == n);
+}
