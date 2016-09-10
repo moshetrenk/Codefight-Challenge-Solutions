@@ -1,0 +1,43 @@
+//Note: I couldn't find the challenge page for this one, it may be from some other site's stuff...    
+
+HashMap<Character, Integer> contains = new HashMap<Character, Integer>(),
+    		 copyOfContainsWithOnlyMultipleHits = new HashMap<Character, Integer>();
+     
+     for(int i = 0; i < s.length(); i++){
+    	 if(!contains.containsKey(s.charAt(i))){
+    		 contains.put(s.charAt(i), 1);
+    	 }
+    	 else{
+    		 contains.replace(s.charAt(i), contains.get(s.charAt(i)) + 1);
+    	 }
+     }
+
+    Iterator<Entry<Character, Integer>> it = contains.entrySet().iterator();
+    while (it.hasNext()) {
+        Entry<Character, Integer> pair = it.next();
+        if(pair.getValue() != 1)
+        	copyOfContainsWithOnlyMultipleHits.put(pair.getKey(), pair.getValue());
+        it.remove();
+    }
+    //at this point in the code, there is a hashmap containing the letters that repeat and the number of instances each
+    
+    
+    
+    for(int i  = 0; i < s.length(); i++){
+         if(!copyOfContainsWithOnlyMultipleHits.containsKey(s.charAt(i))){
+        	 System.out.println("appending horseshit");
+        	 a.append((char)(s.charAt(i) + 1));
+         }
+         else{
+        	 int num = 1;
+        	 for(int j = 0; j < copyOfContainsWithOnlyMultipleHits.get(s.charAt(i)); j++){
+        		 System.out.println("in the loop");
+        		 num *= (s.charAt(i) - 'a' + 1);
+        		 if(j > 2)
+        			 num--;
+        	 }
+        	 num %= 26;
+        	 a.append((char)(s.charAt(i) + num));	
+        	 System.out.println("num = " + num);
+         }
+    }
