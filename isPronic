@@ -1,3 +1,4 @@
+//prettiest thing I've ever come up with :D
 boolean isPronic(int n) {
   
     int a = (int) Math.sqrt(n);
