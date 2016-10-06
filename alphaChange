@@ -5,14 +5,10 @@ String alphaChange(String s) {
    
     int num = getInt(s);
     boolean ch = false;
-    
-    
+
     for(int i = 0; i < s.length(); i++){
         char a = s.charAt(i);
-        
-        
         if (a >= 97 && a <= 122){
-            
             if (num > 26)
                 num %= 26;
             System.out.println(a + num);
@@ -28,7 +24,6 @@ String alphaChange(String s) {
                 num += 26;
         }
         else if (a >= 65 && a <= 90){
-            
             if (num > 26)
                 num %= 26;
             if ((a + num) > 90){
@@ -42,16 +37,12 @@ String alphaChange(String s) {
             if (ch == true)
                 num += 26;
         }
-            
-            
-            
     }
     
     String st = new String(str);
     
     return st;
 }
-
 
 int getInt(String str){
     StringBuilder p = new StringBuilder();
