@@ -1,3 +1,6 @@
+//someone much cooler than me though this up    
+//return Long.bitCount(-n& n*2);    
+    
 int GroupedBits(int n) {
     String string = Integer.toBinaryString(n);
 
