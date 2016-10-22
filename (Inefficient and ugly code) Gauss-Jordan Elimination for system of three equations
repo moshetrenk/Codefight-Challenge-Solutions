@@ -1,0 +1,131 @@
+int[] equationSystem(String[] equations){
+		Double[][] arr = parser(equations);
+			
+		//get 1 in first element of first row
+		for(int a = arr[0].length - 1; a >= 0; a--){
+			arr[0][a] /= arr[0][0];
+			arr[0][a] = Math.round(arr[0][a] * 10000d) / 10000d;
+
+		}
+		
+		//reduce first element of second row to zero
+		for(int b = arr[0].length - 1; b >= 0; b--){
+			Double divisor = 1/arr[1][0];
+			arr[1][b] = arr[0][b] - arr[1][b]*divisor;
+			arr[1][b] = Math.round(arr[1][b] * 10000d) / 10000d;
+		}
+		
+		//reduce first element of third row to zero
+		for(int b = arr[0].length - 1; b >= 0; b--){
+			Double divisor = 1/arr[2][0];
+			arr[2][b] = arr[0][b] - arr[2][b]*divisor;
+			arr[2][b] = Math.round(arr[2][b] * 10000d) / 10000d;
+		}
+		
+		//get 1 in second element of second row
+		for(int c = arr[0].length - 1; c >= 0; c--){
+			Double divisor = 1 / arr[1][1];
+			arr[1][c] *= divisor;
+			arr[1][c] = Math.round(arr[1][c] * 10000d) / 10000d;
+		}
+		
+		//reduce second element of first row to zero
+		for(int d = arr[0].length - 1; d >= 0; d--){
+			Double divisor = arr[0][1];
+			arr[0][d] = arr[0][d] - arr[1][d] * divisor;
+			arr[0][d] = Math.round(arr[0][d] * 10000d) / 10000d;
+		}
+		
+		//reduce second element of third row to zero
+		for(int e = arr[0].length - 1; e >= 0; e--){
+			Double divisor = arr[2][1];
+		 	arr[2][e] -= arr[1][e] * divisor;
+		 	arr[2][e] = Math.round(arr[2][e] * 10000d) / 10000d;
+		}
+		
+		//get 1 in third element of third row
+		for(int f = arr[0].length - 1; f >= 0; f--){
+			Double divisor = 1 / arr[2][2];
+			arr[2][f] *= divisor;
+			arr[2][f] = Math.round(arr[2][f] * 10000d) / 10000d;
+		}
+		
+		//reduce third element of first row to zero
+		for(int g = arr[0].length - 1; g >= 0; g--){
+			Double divisor = arr[0][2];
+			arr[0][g] = arr[0][g] - arr[2][g] * divisor; 
+			arr[0][g] = Math.round(arr[0][g] * 10000d) / 10000d;
+		}
+		
+		//reduce third element of second row to zero
+		for(int h = arr[0].length - 1; h >= 0; h--){
+			Double divisor = arr[1][2];
+			arr[1][h] = arr[1][h] - arr[2][h] * divisor; 
+			arr[1][h] = Math.round(arr[1][h] * 10000d) / 10000d;
+		}
+		
+		for(int i = 0; i < arr.length; i++){
+			for(int j = 0; j < arr[i].length; j++){
+				//arr[i][j] = Math.round(arr[i][j] * 10000d) / 10000d;
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		int[] arr1 = {0, 0, 0};
+		
+		for(int i = 0; i < 3; i++){
+            arr1[i] = (int) Math.round(arr[i][3]);
+        }
+		
+    return arr1;
+	}	
+	
+	
+	
+	
+	static Double[][] parser(String[] strings){
+		Double[][] ar = {{0.0, 0.0, 0.0, 0.0}, {0.0, 0.0, 0.0, 0.0}, {0.0, 0.0, 0.0, 0.0}};
+		
+		for(int i = 0; i < 3; i++){
+			int num = 0;
+			String string = strings[i];
+
+			String temp = string.substring(0, string.indexOf("x"));
+
+			if(temp.equals("-"))
+				ar[i][0] = -1.0;
+			else if (temp.equals("+") || temp.equals(""))
+                ar[i][0] = 1.0;
+            else
+				ar[i][0] = Double.valueOf(temp);
+			string = string.substring(string.indexOf("x") + 1, string.length());
+			
+			temp = string.substring(0, string.indexOf("y"));
+			
+			if(temp.equals("-"))
+				ar[i][1] = -1.0;
+            else if (temp.equals("+") || temp.equals(""))
+                ar[i][1] = 1.0;
+			else
+				ar[i][1] = Double.valueOf(temp);
+			string = string.substring(string.indexOf("y") + 1, string.length());
+
+			temp = string.substring(0, string.indexOf("z"));
+
+			if(temp.equals("-"))
+				ar[i][2] = -1.0;
+            else if (temp.equals("+") || temp.equals(""))
+                ar[i][2] = 1.0;
+			else
+				ar[i][2] = Double.valueOf(temp);
+			string = string.substring(string.indexOf("z") + 1, string.length());
+			
+			temp = string.substring(string.indexOf("=") + 1, string.length());
+			ar[i][3] = Double.valueOf(temp);
+		}
+
+		return ar;
+	}
+	
+	
