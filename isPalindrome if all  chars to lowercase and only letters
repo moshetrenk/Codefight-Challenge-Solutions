@@ -18,3 +18,13 @@ public static boolean isSentencePalindrome(String sentence) {
     
     return true;
 }
+
+/*
+Someone much cooler than me came up with this:
+Object isSentencePalindrome(String s) {
+    s = s.replaceAll("\\W", "");
+    
+    return s.matches("(?i)" + new StringBuffer(s).reverse());
+}
+
+*/
