@@ -1,0 +1,13 @@
+//given two numbers in two different bases, return the sum in string format using the base of the higher number
+
+function BaseAdd(number1, base1, number2, base2) {
+    if(number1 == 0 && number2 == 0)
+        return "0"
+  var a = parseInt(parseInt(number1, base1), 10)
+  var b = parseInt(parseInt(number2, base2), 10)
+  var c = a + b
+  if (a > b)
+      return parseInt(parseInt(c, 10), 10).toString(base1)
+    else
+      return parseInt(parseInt(c, 10), 10).toString(base2);
+}
