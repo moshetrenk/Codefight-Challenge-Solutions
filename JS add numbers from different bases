@@ -7,5 +7,5 @@ function BaseAdd(number1, base1, number2, base2) {
   var b = parseInt(parseInt(number2, base2), 10)
   var c = a + b
   
-  return parseInt(c, 10).toString(a > b ? base1: base2)
+  return parseInt(c, 10).toString(a > b ? base1 : base2)
 }
