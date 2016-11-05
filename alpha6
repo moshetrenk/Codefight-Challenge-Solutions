@@ -1,0 +1,7 @@
+int alpha6(String s) {
+    int sum = 0;
+    for(int i = 0; i < s.length(); i+=5){
+        sum += Integer.valueOf(s.charAt(i));
+    }
+    return sum;
+}
