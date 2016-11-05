@@ -1,0 +1,17 @@
+int digitSumFactorial(int n) {
+    int f = 1;
+    for(int i = 1; i <= n; i++)
+        f *= i;
+    
+    return getSum(f) % 9;    
+}
+
+public static int getSum(int a){
+	int sum = 0;
+	while (a > 0){
+		sum += (a % 10);
+		a /= 10;
+	}
+	
+	return sum;
+}
