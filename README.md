@@ -1,4 +1,4 @@
 # Codefight-Challenge-Solutions    
-I have a mild addiction to codefights.com    
+I have a mild addiction to coding chanllenges    
 Mostly Java, some js    
-At codefight.com, a challenge is posted every day. Some are ridiculously simple, some are ridiculously hard. For the complicated ones, I usually simplified the code but there are several that are short because they're too easy, ie palindrome, addInRange, makeSentence
+Some of these were ridiculously simple, some are ridiculously hard. For the complicated ones, I usually simplified the code but there are several that are short because they're too easy, ie palindrome, addInRange, makeSentence
