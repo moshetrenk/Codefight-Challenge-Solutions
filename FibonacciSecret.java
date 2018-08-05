@@ -1,4 +1,5 @@
-public class FibonacciSecret{
+//String of charsAt fib nums, no spaces    
+public class FibonacciSecret {
 
     String fibonacciSecret(String message) {
         //remove spaces
