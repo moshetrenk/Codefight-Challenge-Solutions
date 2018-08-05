@@ -1,3 +1,5 @@
+
+public class MergeSortedLinkedLists {
     public static List mergeLists(List[] lists) throws Exception {
         List returnList = new List();
 
@@ -21,7 +23,7 @@
         return returnList;
     }
 
-    static boolean allListsEmpty(List[] lists) {
+    private static boolean allListsEmpty(List[] lists) {
         for(List list : lists) {
             if(list.head != null) {
                 return false;
@@ -30,3 +32,5 @@
 
         return true;
     }
+
+}
