@@ -1,6 +1,8 @@
 //note: this timed out for inputs > ~100000+ values
 import java.util.*;
-public class test {
+import java.util.List;
+
+public class UniquesWithDeque {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Deque deque = new ArrayDeque<>();
